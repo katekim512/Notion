@@ -1,0 +1,29 @@
+#Version1
+
+replaceAll(
+  if(prop("Completed") / prop("Goal") >= 1, 
+    "🌏----------✨🌕", 
+    slice(["🌏", "−", "−", "−", "−", "−", "−", "−", "−", "−"], 0, floor(prop("Completed") / prop("Goal") * 10)) + 
+    "🚀" + 
+    slice(["−", "−", "−", "−", "−", "−", "−", "−", "−", "−", "🌕"], floor(prop("Completed") / prop("Goal") * 10), 11)
+  ),
+  ",",
+  ""
+)
+
+
+#Version2
+
+replaceAll(
+  if(
+    prop("Completed") / prop("Goal") >= 1, 
+    "🌏------------✨🌕", 
+    slice(["🌏", "−", "−", "−", "−", "−", "−", "−", "−", "−"], 0, floor(prop("Completed") / prop("Goal") * 10)) + 
+    "🚀" + 
+    slice(["−", "−", "−", "−", "−", "−", "−", "−", "−", "−", "🌕"], floor(prop("Completed") / prop("Goal") * 10), 11)
+  ) + 
+  " " + 
+  format(floor(prop("Completed") / prop("Goal") * 100)) + "%",
+  ",",
+  ""
+)
